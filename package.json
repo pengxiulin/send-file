@@ -1,0 +1,26 @@
+{
+    "name": "send-file",
+    "version": "1.0.0",
+    "description": "Share a file and get an URL quickly",
+    "main": "index.js",
+    "scripts": {
+        "publish": "git add . && git commit -m 'modify' && git push",
+
+        "start": "node bin/index.js",
+        "test": "npm install -g;send yep"
+    },
+    "bin": {
+        "send": "bin/index.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pengxiulin/send-file.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/pengxiulin/send-file/issues"
+    },
+    "homepage": "https://github.com/pengxiulin/send-file#readme"
+}
