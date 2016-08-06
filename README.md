@@ -14,4 +14,3 @@ or just simply use the short alias `send <filename>`
 `npm install -g send-file && send-file -s`
 
 >> After you deploy the server side, you need to edit your own file at ~/.send-file.conf
-
