@@ -1,4 +1,30 @@
 {
+<<<<<<< HEAD
+  "name": "send-file",
+  "version": "1.0.0",
+  "description": "Share a file and get an URL quickly. ## Install This is a node project, so you need to install Node.js at first. `npm install -g send-file`",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pengxiulin/send-file"
+  },
+  "keywords": [
+    "share",
+    "file",
+    "send",
+    "file",
+    "send-file"
+  ],
+  "author": "pengxiulin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pengxiulin/send-file/issues"
+  },
+  "homepage": "https://github.com/pengxiulin/send-file"
+=======
     "name": "send-file",
     "version": "1.0.0",
     "description": "Share a file and get an URL quickly",
@@ -23,4 +49,5 @@
         "url": "https://github.com/pengxiulin/send-file/issues"
     },
     "homepage": "https://github.com/pengxiulin/send-file#readme"
+>>>>>>> 08fbb975af8cb2291584257311052800e0491eff
 }
