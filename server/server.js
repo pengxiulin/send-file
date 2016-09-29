@@ -2,14 +2,23 @@ let http = require('http');
 let fs = require('fs');
 let util = require('./util')
 
-const PORT = 8090;
-
 http.createServer((req, res) =>{
     if(req.method === "POST"){
         util.uploadParser(req, res);
     }else if(req.method === "GET"){
-        if(false){
-            // 文件展示
+        var regex = /\/files\/(.*)$/;
+        if(regex.test(req.url)){
+            // 文件下载
+            var matchResult = req.url.match(regex);
+            if(matchResult.length>1){
+                var filename = matchResult[1];
+                if(filename === ""){
+                    return util.listFiles(req, res);
+                }else{
+                    return util.downloadFile(req, res, filename);
+                }
+            }
+            res.end();
         }else if(true){
             // 展示上传页面
             let htmlContent = fs.readFileSync("./server/index.html");
@@ -27,5 +36,5 @@ http.createServer((req, res) =>{
         });
         res.end('');
     }
-}).listen(PORT);
-console.log("listen on http://local.pengxiulin.com:8090/");
+}).listen(util.config.PORT);
+console.log(`listen on http://${util.config.DOMAIN_NAME}/`);
