@@ -50,6 +50,7 @@ var util = {
     },
     downloadFile: function(req, res, file){
         var filePath = util.config.UPLOAD_DIR + file;
+        filePath = decodeURIComponent(filePath);
         if(fs.existsSync(filePath)){
             fs.createReadStream(filePath).pipe(res);
         }else{
