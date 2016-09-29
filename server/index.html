@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8"/>
+    <title>文件上传测试</title>
+</head>
+<body>
+    <h2>文件上传测试</h2>
+    <div>待实现的功能：</div>
+    <ul>
+        <li><del>上传进度</del></li>
+        <li>拖拽上传</li>
+        <li>剪切板上传</li>
+    </ul>
+    <form action="upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" multiple />
+        <br/>
+        <progress min="0" max="100" value="0"></progress>
+        <br/>
+        <br/>
+        <input type="submit" value="上传" />
+    </form>
+
+<script>
+function uploadFiles(url, files) {
+    var formData = new FormData();
+
+    for (var i = 0, file; file = files[i]; ++i) {
+        formData.append(file.name, file);
+    }
+
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', url, true);
+    xhr.onload = function(e) {
+        console.log("upload complete");
+    };
+
+    // Optional parts, for showing uploading progress
+    var progressBar = document.querySelector('progress');
+    xhr.upload.onprogress = function(e) {
+        if (e.lengthComputable) {
+            progressBar.value = (e.loaded / e.total) * 100;
+        }
+    };
+
+    xhr.send(formData);
+}
+
+document.querySelector('input[type="file"]').addEventListener('change', function(e) {
+    uploadFiles('upload', this.files);
+}, false);
+
+</script>
+
+</body>
+</html>

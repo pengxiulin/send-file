@@ -4,13 +4,13 @@
   "description": "Share a file and get an URL quickly. ## Install This is a node project, so you need to install Node.js at first. `npm install -g send-file`",
   "main": "index.js",
   "scripts": {
-      "publish": "git add . && git commit -m 'modify' && git push",
-
-      "start": "node bin/index.js",
-      "test": "npm install -g;send yep"
+    "publish": "git add . && git commit -m 'modify' && git push",
+    "start": "node bin/send.js",
+    "server": "supervisor server/server.js",
+    "test": "npm install -g;send yep"
   },
   "bin": {
-      "send": "bin/index.js"
+    "send": "bin/send.js"
   },
   "repository": {
     "type": "git",
@@ -28,5 +28,11 @@
   "bugs": {
     "url": "https://github.com/pengxiulin/send-file/issues"
   },
-  "homepage": "https://github.com/pengxiulin/send-file"
+  "homepage": "https://github.com/pengxiulin/send-file",
+  "dependencies": {
+    "multiparty": "^4.1.2"
+  },
+  "devDependencies": {
+    "supervisor": "^0.11.0"
+  }
 }
